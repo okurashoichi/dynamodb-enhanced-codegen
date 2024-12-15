@@ -1,22 +1,29 @@
 <#-- template.ftl -->
-package com.beppukeirin.common.aws.dynamodb.table
+package com.bell
 
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey
-import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbAttribute
-import java.time.LocalDateTime
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSortKey
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSecondaryPartitionKey
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSecondarySortKey
 
 @DynamoDbBean
 data class ${className}(
 <#list attributes as attribute>
-    <#if attribute.partitionKey?? && attribute.partitionKey>
-    @get:DynamoDbPartitionKey
+    <#if attribute.partitionKey>
+    @DynamoDbPartitionKey
     </#if>
-    <#if attribute.sortKey?? && attribute.sortKey>
-    @get:DynamoDbSortKey
+    <#if attribute.sortKey>
+    @DynamoDbSortKey
     </#if>
-    @get:DynamoDbAttribute("${attribute.name}")
-    var ${attribute.name}: ${attribute.type}? = null
+    <#if attribute.secondaryPartitionKey>
+    @DynamoDbSecondaryPartitionKey(indexNames = ["${attribute.secondaryPartitionKeyIndexName}"])
+    </#if>
+    <#if attribute.secondarySortKey>
+    @DynamoDbSecondarySortKey(indexNames = ["${attribute.secondarySortKeyIndexName}"])
+    </#if>
+    @get:DynamoDbAttribute("${attribute.attributeName}")
+    var ${attribute.name}: ${attribute.type}<#if !attribute.partitionKey && !attribute.sortKey>? = null<#else> = ${attribute.defaultValue}</#if><#if attribute_has_next>,</#if>
 
 </#list>
 )

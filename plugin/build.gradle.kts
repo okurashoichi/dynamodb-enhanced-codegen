@@ -33,9 +33,10 @@ dependencies {
 gradlePlugin {
     // Define the plugin
     val greeting by plugins.creating {
-        id = "com.example.dynamodb.codegen"
-        implementationClass = "org.example.DynamodbEnhancedCodegenPlugin"
-        version = "1.0.0"
+        id = "com.bell.dynamodb.codegen"
+        implementationClass = "com.bell.DynamodbEnhancedCodegenPlugin"
+        version = "0.1.0-alpha"
+        description = "Generates DynamoDB Enhanced Client classes"
     }
 }
 tasks {

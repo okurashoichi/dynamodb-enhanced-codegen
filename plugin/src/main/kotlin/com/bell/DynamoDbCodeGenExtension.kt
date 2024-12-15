@@ -1,4 +1,4 @@
-package org.example
+package com.bell
 
 open class DynamoDbCodeGenExtension {
     var region: String = "us-east-1"
