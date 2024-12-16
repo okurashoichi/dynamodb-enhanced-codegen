@@ -1,4 +1,4 @@
-package com.bell
+package com.bell.dynamodb.enhanced.client.codegen
 
 import freemarker.template.Configuration
 import freemarker.template.TemplateExceptionHandler
@@ -13,7 +13,7 @@ import software.amazon.awssdk.services.dynamodb.model.AttributeValue
 import software.amazon.awssdk.services.dynamodb.model.DescribeTableRequest
 import software.amazon.awssdk.services.dynamodb.model.ScanRequest
 
-class DynamodbEnhancedCodegenPlugin : Plugin<Project> {
+class DynamodbEnhancedClientCodegenPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         val extension = project.extensions.create("dynamoDbEnhancedClientCodeGen", DynamoDbCodeGenExtension::class.java)
         project.tasks.register("generateDynamoDbCode", GenerateDynamoDbCodeTask::class.java) {

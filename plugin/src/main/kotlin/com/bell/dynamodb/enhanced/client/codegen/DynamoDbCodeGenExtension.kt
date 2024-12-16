@@ -1,4 +1,4 @@
-package com.bell
+package com.bell.dynamodb.enhanced.client.codegen
 
 open class DynamoDbCodeGenExtension {
     var region: String = "us-east-1"

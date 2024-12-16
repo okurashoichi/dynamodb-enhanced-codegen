@@ -12,7 +12,13 @@ plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     alias(libs.plugins.kotlin.jvm)
     `maven-publish` // 必須
+    id("com.gradle.plugin-publish") version "1.3.0"
 }
+
+group = "com.bell"
+version = "0.1.0-alpha"
+
+
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -31,13 +37,20 @@ dependencies {
 }
 
 gradlePlugin {
-    // Define the plugin
-    val greeting by plugins.creating {
-        id = "com.bell.dynamodb.codegen"
-        implementationClass = "com.bell.DynamodbEnhancedCodegenPlugin"
-        version = "0.1.0-alpha"
-        description = "Generates DynamoDB Enhanced Client classes"
+    plugins {
+        website = "https://github.com/okurashoichi/dynamodb-enhanced-codegen"
+        vcsUrl = "https://github.com/okurashoichi/dynamodb-enhanced-codegen"
+        // Define the plugin
+        create("dynamodbEnhancedClientCodegenPlugin") {
+            id = "com.bell.dynamodb.enhanced.client.codegen"
+            displayName = "DynamoDB Enhanced Client Codegen"
+            implementationClass = "com.bell.dynamodb.enhanced.client.codegen.DynamodbEnhancedClientCodegenPlugin"
+            version = "0.1.0-alpha"
+            description = "Generates DynamoDB Enhanced Client classes"
+            tags = listOf("dynamodb", "codegen", "enhanced", "client")
+        }
     }
+
 }
 tasks {
     processResources {
@@ -71,3 +84,22 @@ tasks.named<Test>("test") {
     // Use JUnit Jupiter for unit tests.
     useJUnitPlatform()
 }
+publishing {
+    repositories {
+        maven {
+            name = "GradlePluginPortal"
+            url = uri("https://plugins.gradle.org/m2/")
+            credentials {
+                username = project.findProperty("gradle.publish.key") as String? ?: ""
+                password = project.findProperty("gradle.publish.secret") as String? ?: ""
+            }
+        }
+    }
+}
+//sourceSets {
+//    main {
+//        kotlin {
+//            srcDirs("src/main/kotlin")
+//        }
+//    }
+//}
