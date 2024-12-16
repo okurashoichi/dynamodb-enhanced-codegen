@@ -36,7 +36,7 @@ abstract class GenerateDynamoDbCodeTask : org.gradle.api.DefaultTask() {
             throw IllegalStateException("Template file not found in resources")
         }
         val dynamoDbClient = software.amazon.awssdk.services.dynamodb.DynamoDbClient.builder()
-            .endpointOverride(URI.create("http://localhost:8000")) // ローカルのDynamoDBエンドポイント
+            .endpointOverride(URI.create(extension.endpoint))
             .region(software.amazon.awssdk.regions.Region.of(extension.region))
             .build()
         val cfg = Configuration(Configuration.VERSION_2_3_31).apply {

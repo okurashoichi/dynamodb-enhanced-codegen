@@ -45,7 +45,7 @@ gradlePlugin {
             id = "com.bell.dynamodb.enhanced.client.codegen"
             displayName = "DynamoDB Enhanced Client Codegen"
             implementationClass = "com.bell.dynamodb.enhanced.client.codegen.DynamodbEnhancedClientCodegenPlugin"
-            version = "0.1.0-alpha"
+            version = "0.1.1-alpha"
             description = "Generates DynamoDB Enhanced Client classes"
             tags = listOf("dynamodb", "codegen", "enhanced", "client")
         }
