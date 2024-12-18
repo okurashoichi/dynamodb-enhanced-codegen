@@ -46,7 +46,7 @@ gradlePlugin {
             displayName = "DynamoDB Enhanced Client Codegen Plugin"
             description = "A Gradle plugin that generates Kotlin code based on DynamoDB table schemas using the DynamoDB Enhanced Client."
             implementationClass = "io.github.okurashoichi.dynamodb.enhanced.codegen.DynamodbEnhancedClientCodegenPlugin"
-            version = "0.1.1-alpha1"
+            version = "0.1.1-alpha2"
             tags = listOf("dynamodb", "codegen", "enhanced", "client")
         }
     }
@@ -84,22 +84,3 @@ tasks.named<Test>("test") {
     // Use JUnit Jupiter for unit tests.
     useJUnitPlatform()
 }
-publishing {
-    repositories {
-        maven {
-            name = "GradlePluginPortal"
-            url = uri("https://plugins.gradle.org/m2/")
-            credentials {
-                username = "y2HinRdua9qi0bZErtx7A66ZyZps9Sll"
-                password = "NtYxOb9SFUYArUI4XHBk3LamwdYH9Q6c"
-            }
-        }
-    }
-}
-//sourceSets {
-//    main {
-//        kotlin {
-//            srcDirs("src/main/kotlin")
-//        }
-//    }
-//}
