@@ -1,5 +1,5 @@
 <#-- template.ftl -->
-package com.bell
+package dynamodb.enhanced.codegen
 
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey
