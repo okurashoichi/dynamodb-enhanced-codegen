@@ -15,8 +15,8 @@ plugins {
     id("com.gradle.plugin-publish") version "1.3.0"
 }
 
-group = "com.bell"
-version = "0.1.0-alpha"
+group = "io.github.okurashoichi"
+version = "0.1.0-alpha1"
 
 
 
@@ -42,11 +42,11 @@ gradlePlugin {
         vcsUrl = "https://github.com/okurashoichi/dynamodb-enhanced-codegen"
         // Define the plugin
         create("dynamodbEnhancedClientCodegenPlugin") {
-            id = "com.bell.dynamodb.enhanced.client.codegen"
-            displayName = "DynamoDB Enhanced Client Codegen"
-            implementationClass = "com.bell.dynamodb.enhanced.client.codegen.DynamodbEnhancedClientCodegenPlugin"
-            version = "0.1.1-alpha"
-            description = "Generates DynamoDB Enhanced Client classes"
+            id = "io.github.okurashoichi.dynamodb.enhanced.codegen"
+            displayName = "DynamoDB Enhanced Client Codegen Plugin"
+            description = "A Gradle plugin that generates Kotlin code based on DynamoDB table schemas using the DynamoDB Enhanced Client."
+            implementationClass = "io.github.okurashoichi.dynamodb.enhanced.codegen.DynamodbEnhancedClientCodegenPlugin"
+            version = "0.1.1-alpha1"
             tags = listOf("dynamodb", "codegen", "enhanced", "client")
         }
     }
@@ -90,8 +90,8 @@ publishing {
             name = "GradlePluginPortal"
             url = uri("https://plugins.gradle.org/m2/")
             credentials {
-                username = project.findProperty("gradle.publish.key") as String? ?: ""
-                password = project.findProperty("gradle.publish.secret") as String? ?: ""
+                username = "y2HinRdua9qi0bZErtx7A66ZyZps9Sll"
+                password = "NtYxOb9SFUYArUI4XHBk3LamwdYH9Q6c"
             }
         }
     }

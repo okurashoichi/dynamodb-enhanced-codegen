@@ -1,4 +1,4 @@
-package com.bell.dynamodb.enhanced.client.codegen
+package io.github.okurashoichi.dynamodb.enhanced.codegen
 
 import freemarker.template.Configuration
 import freemarker.template.TemplateExceptionHandler
