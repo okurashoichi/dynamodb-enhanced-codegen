@@ -11,16 +11,16 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSecon
 data class ${className}(
 <#list attributes as attribute>
     <#if attribute.partitionKey>
-    @DynamoDbPartitionKey
+    @get:DynamoDbPartitionKey
     </#if>
     <#if attribute.sortKey>
-    @DynamoDbSortKey
+    @get:DynamoDbSortKey
     </#if>
     <#if attribute.secondaryPartitionKey>
-    @DynamoDbSecondaryPartitionKey(indexNames = ["${attribute.secondaryPartitionKeyIndexName}"])
+    @get:DynamoDbSecondaryPartitionKey(indexNames = ["${attribute.secondaryPartitionKeyIndexName}"])
     </#if>
     <#if attribute.secondarySortKey>
-    @DynamoDbSecondarySortKey(indexNames = ["${attribute.secondarySortKeyIndexName}"])
+    @get:DynamoDbSecondarySortKey(indexNames = ["${attribute.secondarySortKeyIndexName}"])
     </#if>
     @get:DynamoDbAttribute("${attribute.attributeName}")
     var ${attribute.name}: ${attribute.type}<#if !attribute.partitionKey && !attribute.sortKey>? = null<#else> = ${attribute.defaultValue}</#if><#if attribute_has_next>,</#if>
