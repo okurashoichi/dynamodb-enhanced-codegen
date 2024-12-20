@@ -46,7 +46,7 @@ gradlePlugin {
             displayName = "DynamoDB Enhanced Client Codegen Plugin"
             description = "A Gradle plugin that generates Kotlin code based on DynamoDB table schemas using the DynamoDB Enhanced Client."
             implementationClass = "io.github.okurashoichi.dynamodb.enhanced.codegen.DynamodbEnhancedClientCodegenPlugin"
-            version = "0.1.1-alpha2"
+            version = "0.1.2-alpha"
             tags = listOf("dynamodb", "codegen", "enhanced", "client")
         }
     }
