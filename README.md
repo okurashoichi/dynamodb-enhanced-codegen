@@ -14,7 +14,7 @@ Add the following to your `build.gradle.kts`:
 
 ```kotlin
 plugins {
-    id("io.github.okurashoichi.dynamodb.enhanced.codegen") version "0.1.1-alpha"
+    id("io.github.okurashoichi.dynamodb.enhanced.codegen") version "latest"
 }
 ```
 
@@ -23,7 +23,7 @@ Start DynamoDB Local.
 Add the plugin configuration to your build.gradle.kts
 
 ```kotlin
-dynamodbEnhancedCodegen {
+dynamoDbEnhancedClientCodeGen {
     region = "us-west-2"
     tableNames = listOf("Your", "Table", "Names")
     outputDir = "$buildDir/generated-src"
