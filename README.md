@@ -28,6 +28,7 @@ dynamoDbEnhancedClientCodeGen {
     tableNames = listOf("Your", "Table", "Names")
     outputDir = "$buildDir/generated-src"
     endpoint = "http://localhost:8000" // Set the endpoint
+    packageName = "com.example.generated"
 }
 ```
 
