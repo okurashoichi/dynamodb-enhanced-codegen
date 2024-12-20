@@ -65,6 +65,7 @@ abstract class GenerateDynamoDbCodeTask : org.gradle.api.DefaultTask() {
 
             val template = cfg.getTemplate("template.ftl")
             val dataModel = mapOf(
+                "packageName" to extension.packageName,
                 "className" to tableName.toUpperCamelCase(),
                 "attributes" to allAttributes.map { (attr, attrValue) ->
                     mapOf(
